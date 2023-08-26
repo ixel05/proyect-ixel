@@ -7,7 +7,7 @@ export class Modelo {
   @PrimaryGeneratedColumn({ type: 'int4' })
   id?: number;
 
-  @PrimaryGeneratedColumn({ type: 'int4' })
+  @Column({ type: 'int4' })
   marca_id?: number;
 
   @Column({ type: 'varchar', length: 60, nullable: false })

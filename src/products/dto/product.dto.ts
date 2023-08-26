@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsNumber, IsString, MaxLength } from 'class-validator';
+import { IsDateString, IsNotEmpty, IsNumber, IsOptional, IsString, MaxLength, isString } from 'class-validator';
 
 export class CreateProductDto {
   @IsNotEmpty()
@@ -22,4 +22,23 @@ export class CreateProductDto {
   @IsNumber()
   @IsNotEmpty()
   stock: number;
+
+  @IsString()
+  @IsOptional()
+  filname:string;
+
+ @IsDateString()
+ @IsOptional()
+ created_at: string;
+
+ @IsNotEmpty()
+ @IsNumber()
+ user_id: number;
+
+ @IsNotEmpty()
+ @IsNumber()
+ category_id: number;
+
+
+
 }
