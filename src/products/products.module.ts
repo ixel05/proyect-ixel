@@ -14,6 +14,7 @@ import { Proveedorservice } from './services/proveedores.service';
 
 
 
+
 @Module({
   imports: [TypeOrmModule.forFeature([Product, productImage,Category,Proveedor])],
   controllers: [ProductController,CategoryController,ProveedorController],

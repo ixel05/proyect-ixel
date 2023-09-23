@@ -1,6 +1,10 @@
-import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { User } from '../../users/entities/user.entity';
 import { Category } from './category.entity';
+import { Proveedor } from './proveedor.entity';
+import { productImage } from './product-image.entity';
+
+type NewType = productImage;
 
 @Entity()
 export class Product {
@@ -49,12 +53,26 @@ export class Product {
 
   })
   Category: Category;
+   
+
+    @ManyToOne(() => Proveedor)
+    @JoinColumn({ 
+      name: 'proveedor_id',
+      referencedColumnName: 'id'
+     })
+    proveedor: Proveedor;
+  
+  @OneToMany(() => productImage, (productImage) => productImage.product, {
+      cascade: true,
+    })
+    images?: NewType[];
+   }
 
   
 
 
 
 
-}
+
 
 
